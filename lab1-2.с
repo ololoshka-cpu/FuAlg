@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	int a;
+	char answer[] = "Composite number";
+	char answer1[] = "Prime number";
+
+	scanf("%d", &a);
+
+	if (a == 0)
+		return 0;
+
+	for (int i = 2; i <= (int)sqrt(a); i++) {
+		if (a % i == 0) {
+			printf("%s\n", answer);
+			return 0;
+		}
+	}
+	printf("%s\n", answer1);
+	return 0;
+}
