@@ -25,4 +25,5 @@ int main(int argc, char** argv) {
 		fprintf(Fout, "%d chars in %d line\n", count_of_chars, count_of_lines);
 	fclose(Fin);
 	fclose(Fout);
+	return 0;
 }
