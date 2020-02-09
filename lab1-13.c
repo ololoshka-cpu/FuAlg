@@ -2,17 +2,17 @@
 #include <stdlib.h>
 #define Symbol (c != ' ' && c != '\n')
 
-char *NewMemory(char* arr, int SIZE) {
-	char* arr1 = (char*)calloc(SIZE + 50,sizeof(char));
+char* NewMemory(char* arr, int SIZE) {
+	char* arr1 = (char*)calloc(SIZE + 50, sizeof(char));
 	for (int i = 0; i < SIZE; i++)
-		*(arr1+i) = *(arr + i);
+		*(arr1 + i) = *(arr + i);
 	free(arr);
 	return arr1;
 }
 
 int main(int argc, char** argv) {
 	int SIZE = 50, i = 0, k = 0, flag1 = 1, flag2;
-	char *str = (char*)calloc(SIZE,sizeof(char));
+	char* str = (char*)calloc(SIZE, sizeof(char));
 	char c;
 	int border[] = { -1,-1,-1,-1 };
 
@@ -47,22 +47,22 @@ int main(int argc, char** argv) {
 		}
 		else {
 			if (border[2] + border[3] == -2) {
-				fprintf(fout," ");
+				fprintf(fout, " ");
 				for (int q = 0; q < i; q++)
-					fprintf(fout,"%c", *(str + q));
+					fprintf(fout, "%c", *(str + q));
 			}
 			else if (border[3] == -1) {
-				fprintf(fout," ");
+				fprintf(fout, " ");
 				for (int q = 0; q < border[2]; q++)
-					fprintf(fout,"%c", *(str + q));
+					fprintf(fout, "%c", *(str + q));
 			}
 			else {
 				for (int q = border[3]; q < i; q++)
-					fprintf(fout,"%c", *(str + q));
+					fprintf(fout, "%c", *(str + q));
 				for (int q = border[2]; q < border[3]; q++)
-					fprintf(fout,"%c", *(str + q));
+					fprintf(fout, "%c", *(str + q));
 				for (int q = 0; q < border[3]; q++)
-					fprintf(fout,"%c", *(str + q));
+					fprintf(fout, "%c", *(str + q));
 			}
 			i = 0;
 			k = 0;
@@ -71,32 +71,38 @@ int main(int argc, char** argv) {
 			SIZE = 50;
 			str = (char*)calloc(SIZE, sizeof(char));
 			border[0] = border[1] = border[2] = border[3] = -1;
-			fprintf(fout,"\n");
+			fprintf(fout, "\n");
 
-		}		
+		}
 	}
 	if (i != 0) {
 		if (border[0] + border[1] + border[2] + border[3] == -4 || border[2] + border[3] == -2) {
-			fprintf(fout," ");
+			fprintf(fout, " ");
 			for (int q = 0; q < i; q++)
-				fprintf(fout,"%c", *(str + q));
+				fprintf(fout, "%c", *(str + q));
 		}
 		else if (border[3] == -1) {
-			fprintf(fout," ");
+			fprintf(fout, " ");
 			for (int q = 0; q < border[2]; q++)
-				fprintf(fout,"%c", *(str + q));
+				fprintf(fout, "%c", *(str + q));
 		}
 		else {
 			for (int q = border[3]; q < i; q++)
-				fprintf(fout,"%c", *(str + q));
+				fprintf(fout, "%c", *(str + q));
 			for (int q = border[2]; q < border[3]; q++)
-				fprintf(fout,"%c", *(str + q));
+				fprintf(fout, "%c", *(str + q));
 			for (int q = 0; q < border[3]; q++)
-				fprintf(fout,"%c", *(str + q));
+				fprintf(fout, "%c", *(str + q));
 		}
 	}
 	free(str);
 	fclose(fin);
 	fclose(fout);
+	fin = fopen("C:/Users/Andrew's PC/source/repos/ConsoleApplication1/Debug/answer.txt", "r");
+	fout = fopen(argv[1], "w");
+	while ((c = fgetc(fin)) != EOF)
+		fprintf(fout, "%c", c);
+	fclose(fin);
+	fclose(fout);
+	remove("C:/Users/Andrew's PC/source/repos/ConsoleApplication1/Debug/answer.txt");
 	return 0;
-}
