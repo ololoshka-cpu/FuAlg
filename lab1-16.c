@@ -68,6 +68,7 @@ void PrintWord(char *word, FILE * fout, int k) {
 			fprintf(fout, "%c", *(word + i));
 			i++;
 		}
+	free(word);
 	fprintf(fout, " ");
 }
 int main(int argc, char** argv) {
