@@ -56,6 +56,7 @@ void printword(char* word, FILE * fout) {
 	}
 	else
 		fprintf(fout, " ");
+	free(word);
 }
 
 int main(int argc, char** argv) {
