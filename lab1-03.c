@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 
-int main() {
+int main(int argc, char** argv) {
 	FILE * Fin, * Fout;
 	char c;
 	Fin = fopen("C:/Users/User/Documents/text1.txt", "r");
