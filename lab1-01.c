@@ -9,11 +9,14 @@ int main(int argc, char* argv[]) {
 		printf("%s/n", error1);
 		return 0;
 	}
-	if (atoi(argv[1]) == 0) {
+	
+	int Ilya = atoi(argv[1]);
+	
+	if (Ilya == 0) {
 		printf("%s\n", error);
 		return 0;
 	}
-	while (k * atoi(argv[1]) <= 100) {
+	while (k * Ilya <= 100) {
 		printf("%d\n", k * atoi(argv[1]));
 		k++;
 	}
